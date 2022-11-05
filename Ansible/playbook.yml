@@ -1,0 +1,20 @@
+- hosts: nodes
+  become: yes
+  tasks:
+  - name: ensure docker is installed
+    apt:
+      update_cache: yes
+      name: docker.io
+      state: latest
+      update_cache: yes
+
+  - name: ensure docker is installed
+    apt:
+      update_cache: yes
+      name: docker-compose
+      state: latest
+
+  - name: Added user to docker group
+    user:
+      name: vagrant
+      groups: docker
